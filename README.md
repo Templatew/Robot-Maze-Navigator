@@ -38,6 +38,9 @@ Once the setup is complete, you can start the simulation in CoppeliaSim. The rob
 
 ## Gallery
 [Maze Small](https://www.youtube.com/watch?v=gO2x4uKiWLo)
+
 [Maze Normal1](https://www.youtube.com/watch?v=eE6V4Z8Rsyo)
+
 [Maze Normal2](https://www.youtube.com/watch?v=hEwCGLeCXpU)
+
 [Maze Big](https://www.youtube.com/watch?v=pYgpAhSzy7s)
