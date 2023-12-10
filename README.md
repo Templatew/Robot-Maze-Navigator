@@ -28,7 +28,7 @@ To run this project, you will need to set up CoppeliaSim with HoroSim and load t
 3. Load the Arduino code into the Arduino IDE and upload it to your Arduino board, or integrate it with the HoroSim plugin in CoppeliaSim.
 
 ## Code
-The source code for the robot's navigation system can be found here: [Robot Navigation Code](https://github.com/your-username/your-repository-name).
+The source code for the robot's navigation system can be found here: [Robot Navigation Code](https://github.com/Templatew/Robot-Maze-Navigator/tree/main/Code).
 
 ## Example Mazes
 Examples of the mazes that the robot can navigate can be found here: [Maze Examples](https://github.com/Templatew/Robot-Maze-Navigator/tree/main/Maze%20Exemples).
