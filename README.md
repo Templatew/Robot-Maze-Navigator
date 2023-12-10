@@ -37,4 +37,7 @@ Examples of the mazes that the robot can navigate can be found here: [Maze Examp
 Once the setup is complete, you can start the simulation in CoppeliaSim. The robot will automatically begin navigating the maze, employing its algorithms to find the black tile and return to the starting point.
 
 ## Gallery
-[![Maze Small]](https://www.youtube.com/watch?v=gO2x4uKiWLo)
+[Maze Small](https://www.youtube.com/watch?v=gO2x4uKiWLo)
+[Maze Normal1](https://www.youtube.com/watch?v=eE6V4Z8Rsyo)
+[Maze Normal2](https://www.youtube.com/watch?v=hEwCGLeCXpU)
+[Maze Big](https://www.youtube.com/watch?v=pYgpAhSzy7s)
