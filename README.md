@@ -40,10 +40,11 @@ For detailed information about the implementation and functionalities of the rob
 Examples of the mazes that the robot can navigate can be found here: [Maze Examples](https://github.com/Templatew/Robot-Maze-Navigator/tree/main/Maze%20Exemples).
 
 ## Gallery
-[Maze Small](https://www.youtube.com/watch?v=gO2x4uKiWLo)
+In this section, you can find videos showcasing the successful execution of the robot's maze navigation code. These videos are screen recordings taken on my personal computer (equipped with an i9-11900k processor) which demonstrate how the code performs in real-time within the CoppeliaSim environment.
 
-[Maze Normal1](https://www.youtube.com/watch?v=eE6V4Z8Rsyo)
+### Video Demonstrations
 
-[Maze Normal2](https://www.youtube.com/watch?v=hEwCGLeCXpU)
-
-[Maze Big](https://www.youtube.com/watch?v=pYgpAhSzy7s)
+- **Video 1**: [Robot Navigating Maze - Small](https://www.youtube.com/watch?v=gO2x4uKiWLo)
+- **Video 2**: [Robot Navigating Maze - Normal 1](https://www.youtube.com/watch?v=eE6V4Z8Rsyo)
+- **Video 3**: [Robot Navigating Maze - Normal 2](https://www.youtube.com/watch?v=hEwCGLeCXpU)
+- **Video 4**: [Robot Navigating Maze - Big](https://www.youtube.com/watch?v=pYgpAhSzy7s)
