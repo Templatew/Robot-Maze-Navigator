@@ -40,7 +40,7 @@ For detailed information about the implementation and functionalities of the rob
 Examples of the mazes that the robot can navigate can be found here: [Maze Examples](https://github.com/Templatew/Robot-Maze-Navigator/tree/main/Maze%20Exemples).
 
 ## Gallery
-In this section, you can find videos showcasing the successful execution of the robot's maze navigation code. These videos are screen recordings taken on my personal computer (equipped with an i9-11900k processor) which demonstrate how the code performs in real-time within the CoppeliaSim environment.
+In this section, you can find videos showcasing the successful execution of the robot's maze navigation code. These videos are screen recordings taken on a computer equipped with an i9-11900k processor, which demonstrate how the code performs in real-time within the CoppeliaSim environment.
 
 ### Video Demonstrations
 
