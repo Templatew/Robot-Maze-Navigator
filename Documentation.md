@@ -3,6 +3,28 @@
 ## Overview
 This code controls a robot designed to navigate through a maze. It's part of a robotics simulation conducted in CoppeliaSim with HoroSim. The robot utilizes proximity sensors for wall-following and a light sensor for color detection. The navigation strategy combines following walls and random movement to explore the maze efficiently.
 
+## Global Behavior of the Robot
+
+The robot's navigation strategy in the maze is governed by a series of logical steps and mode switches to ensure comprehensive exploration and the achievement of its objectives. The behavior can be summarized as follows:
+
+1. **Initial Strategy - Follow Right Wall**:
+   - At the start, the robot adheres to a wall-following algorithm where it keeps the right wall in proximity. This strategy is effective for initial exploration and helps in mapping the periphery of the maze.
+
+2. **Switch to Random Mode**:
+   - If the robot returns to the starting position (the red case) without having detected the black case, it implies that the right wall-following strategy has not led to the goal. Consequently, the robot switches to a "random" navigation algorithm. This change in strategy is aimed at exploring the central or unvisited parts of the maze that might not be reachable with the wall-following approach.
+
+3. **Objective Completion - Finding the Black Case**:
+   - The primary objective for the robot is to find a black case within the maze. Once the robot detects a black case, it changes its goal to finding its way back to the red case (the starting position).
+
+4. **Returning to the Start**:
+   - After finding the black case, the robot aims to navigate back to the starting point. The strategy employed for the return journey may vary, but it typically involves either continuing the random navigation or switching back to a wall-following approach, depending on the maze's structure and the robot's current position.
+
+5. **Adaptive Strategy**:
+   - Throughout its navigation, the robot continually adapts its strategy based on the environmental feedback obtained through its sensors. This adaptive approach allows the robot to effectively deal with the dynamic and unpredictable nature of the maze environment.
+
+### Note
+- The values of various variables, especially those related to sensors and the PID controller, have been determined through trial and error. Depending on the simulation setup and the specific characteristics of the PC used (in this case, an i9-11900k processor), these variables may need to be adjusted for optimal performance.
+
 ## Pin Definitions and Sensor Indices
 - Pins for motors and sensors are defined for easy reference and modification.
 - Sensor indices (`sensors_FL`, `sensors_FR`, etc.) provide a clear, consistent way to refer to each sensor's data.
