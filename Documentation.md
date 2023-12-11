@@ -8,7 +8,7 @@ This code controls a robot designed to navigate through a maze. It's part of a r
 The robot's navigation strategy in the maze is governed by a series of logical steps and mode switches to ensure comprehensive exploration and the achievement of its objectives. The behavior can be summarized as follows:
 
 1. **Initial Strategy - Follow Right Wall**:
-   - At the start, the robot adheres to a wall-following algorithm where it keeps the right wall in proximity. This strategy is effective for initial exploration and helps in mapping the periphery of the maze.
+   - At the start, the robot adheres to a wall-following algorithm where it keeps the right wall in proximity. This strategy is effective for initial exploration.
 
 2. **Switch to Random Mode**:
    - If the robot returns to the starting position (the red case) without having detected the black case, it implies that the right wall-following strategy has not led to the goal. Consequently, the robot switches to a "random" navigation algorithm. This change in strategy is aimed at exploring the central or unvisited parts of the maze that might not be reachable with the wall-following approach.
