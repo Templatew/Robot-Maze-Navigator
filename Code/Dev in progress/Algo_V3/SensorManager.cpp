@@ -1,6 +1,6 @@
 // SensorManager.cpp
 #include "SensorManager.h"
-
+#include <Arduino.h>
 
 
 SensorManager::SensorManager() {
