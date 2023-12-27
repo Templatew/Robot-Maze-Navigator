@@ -32,7 +32,7 @@ SensorManager::SensorManager() {
 
 SensorManager::~SensorManager() {}
 
-void SensorManager::getSensorValues(); {
+void SensorManager::getSensorValues() {
   sensorValues[sensors_FL] = analogRead(PROX_SENSOR_FL_PIN);
   sensorValues[sensors_FR] = analogRead(PROX_SENSOR_FR_PIN);
   sensorValues[sensors_L] = analogRead(PROX_SENSOR_L_PIN);
