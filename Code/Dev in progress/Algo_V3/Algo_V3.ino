@@ -1,13 +1,5 @@
-// Pin definitions for sensors and motors
-#define LIGHT_SENSOR_PIN A0
-#define PROX_SENSOR_L_PIN 9
-#define PROX_SENSOR_R_PIN A1
-#define PROX_SENSOR_FL_PIN A2
-#define PROX_SENSOR_FR_PIN A3
-#define PROX_SENSOR_RL_PIN 6
-#define PROX_SENSOR_RR_PIN 12
-#define PROX_SENSOR_DL_PIN A4
-#define PROX_SENSOR_DR_PIN A5
+#include "SensorManager.h"
+
 
 #define MOTOR_RF_PIN 2
 #define MOTOR_RB_PIN 4
@@ -16,20 +8,6 @@
 #define MOTOR_LB_PIN 8
 #define MOTOR_L_SPEED 5
 
-// Sensor indices
-#define sensors_FL 0
-#define sensors_FR 1
-#define sensors_L 2
-#define sensors_R 3
-#define sensors_RL 4
-#define sensors_RR 5
-#define sensors_DL 6
-#define sensors_DR 7
-#define sensors_light 8
-
-
-// Array to store sensor values
-int val_sensors[9];
 
 // Function to initialize hardware setup
 void hardware_setup() {
@@ -85,17 +63,19 @@ void stop() {
 }
 
 // Function to get sensor values
-void get_sensors_value() {
-  val_sensors[sensors_FL] = analogRead(PROX_SENSOR_FL_PIN);
-  val_sensors[sensors_FR] = analogRead(PROX_SENSOR_FR_PIN);
-  val_sensors[sensors_L] = analogRead(PROX_SENSOR_L_PIN);
-  val_sensors[sensors_R] = analogRead(PROX_SENSOR_R_PIN);
-  val_sensors[sensors_RL] = analogRead(PROX_SENSOR_RL_PIN);
-  val_sensors[sensors_RR] = analogRead(PROX_SENSOR_RR_PIN);
-  val_sensors[sensors_DL] = analogRead(PROX_SENSOR_DL_PIN);
-  val_sensors[sensors_DR] = analogRead(PROX_SENSOR_DR_PIN);
-  val_sensors[sensors_light] = analogRead(LIGHT_SENSOR_PIN);
-}
+// void sensorManager.getSensorsValue() {
+//   sensorManager.sensorValues[sensors_FL] = analogRead(PROX_SENSOR_FL_PIN);
+//   sensorManager.sensorValues[sensors_FR] = analogRead(PROX_SENSOR_FR_PIN);
+//   sensorManager.sensorValues[sensors_L] = analogRead(PROX_SENSOR_L_PIN);
+//   sensorManager.sensorValues[sensors_R] = analogRead(PROX_SENSOR_R_PIN);
+//   sensorManager.sensorValues[sensors_RL] = analogRead(PROX_SENSOR_RL_PIN);
+//   sensorManager.sensorValues[sensors_RR] = analogRead(PROX_SENSOR_RR_PIN);
+//   sensorManager.sensorValues[sensors_DL] = analogRead(PROX_SENSOR_DL_PIN);
+//   sensorManager.sensorValues[sensors_DR] = analogRead(PROX_SENSOR_DR_PIN);
+//   sensorManager.sensorValues[sensors_light] = analogRead(LIGHT_SENSOR_PIN);
+// }
+
+SensorManager sensorManager;
 
 
 void setup() {
@@ -121,7 +101,7 @@ void setup() {
 
 // Function to check if a wall is in front of the robot
 bool wall_in_front() {
-  return val_sensors[sensors_FL] < DISTANCE_SENSOR_FORWARD || val_sensors[sensors_FR] < DISTANCE_SENSOR_FORWARD;
+  return sensorManager.sensorValues[sensors_FL] < DISTANCE_SENSOR_FORWARD || sensorManager.sensorValues[sensors_FR] < DISTANCE_SENSOR_FORWARD;
 }
 
 // Function to constrain a value between two limits
@@ -152,15 +132,15 @@ void follow_wall_right() {
   int speed_left, speed_right;
 
   // Get sensor values
-  get_sensors_value();
+  sensorManager.getSensorsValue();
 
   while (wall_in_front()) {
     move(0, MAX_SPEED);
-    get_sensors_value();
+    sensorManager.getSensorsValue();
   }
 
   // Error calculation
-  error = val_sensors[sensors_DR] - DISTANCE_TARGET;
+  error = sensorManager.sensorValues[sensors_DR] - DISTANCE_TARGET;
 
   // Integral calculation
   integral += error;
@@ -195,15 +175,15 @@ void follow_wall_left() {
   int speed_left, speed_right;
 
   // Get sensor values
-  get_sensors_value();
+  sensorManager.getSensorsValue();
 
   while (wall_in_front()) {
     move(MAX_SPEED, 0);
-    get_sensors_value();
+    sensorManager.getSensorsValue();
   }
 
   // Error calculation
-  error = val_sensors[sensors_DL] - DISTANCE_TARGET;
+  error = sensorManager.sensorValues[sensors_DL] - DISTANCE_TARGET;
 
   // Integral calculation
   integral += error;
@@ -233,7 +213,7 @@ void follow_wall_left() {
 void random() {
 
   // Get sensor values
-  get_sensors_value();
+  sensorManager.getSensorsValue();
 
   // If no wall is detected in front of the robot, move forward
   if (!wall_in_front()) {
@@ -244,11 +224,11 @@ void random() {
   else {
 
     // If the wall is ont the left, turn right
-    if (val_sensors[sensors_FL] < val_sensors[sensors_FR]) {
+    if (sensorManager.sensorValues[sensors_FL] < sensorManager.sensorValues[sensors_FR]) {
 
       // Turn right until the wall is not in front of the robot anymore
-      while (val_sensors[sensors_FL] < MAX_DISTANCE) {
-        get_sensors_value();
+      while (sensorManager.sensorValues[sensors_FL] < MAX_DISTANCE) {
+        sensorManager.getSensorsValue();
         move(MAX_SPEED, -MAX_SPEED);
       }
 
@@ -258,8 +238,8 @@ void random() {
     else {
 
       // Turn left until the wall is not in front of the robot anymore
-      while (val_sensors[sensors_FR] < MAX_DISTANCE) {
-        get_sensors_value();
+      while (sensorManager.sensorValues[sensors_FR] < MAX_DISTANCE) {
+        sensorManager.getSensorsValue();
         move(-MAX_SPEED, MAX_SPEED);
       }
     }
@@ -308,7 +288,7 @@ void switchMode() {
 void loop() {
 
   // Get sensor values
-  get_sensors_value();
+  sensorManager.getSensorsValue();
 
   // Switch between objectives
   switch (objective) {
@@ -317,19 +297,19 @@ void loop() {
     case FIND_BLACK_CASE:
 
       // If the robot is on a white case for the first time
-      if (!left_first_case && abs(val_sensors[sensors_light] - WHITE_VALUE) < EPSILON_COLOR) {
+      if (!left_first_case && abs(sensorManager.sensorValues[sensors_light] - WHITE_VALUE) < EPSILON_COLOR) {
         left_first_case = true;  // Set the boolean to true
         Serial.println("left_first_case");
       }
 
       // If the robot is on a black case
-      else if (abs(val_sensors[sensors_light] - BLACK_VALUE) < EPSILON_COLOR) {
+      else if (abs(sensorManager.sensorValues[sensors_light] - BLACK_VALUE) < EPSILON_COLOR) {
         objective = CONFIRMATION_BLACK;            // Go to confirmation
         start_time_color_confirmation = millis();  // Start the timer
       }
 
       // If the robot is on a red case and has already left the starting case
-      else if (left_first_case && (val_sensors[sensors_light] - RED_VALUE) < EPSILON_COLOR) {
+      else if (left_first_case && (sensorManager.sensorValues[sensors_light] - RED_VALUE) < EPSILON_COLOR) {
         objective = CONFIRMATION_RED;              // Go to find a red case
         start_time_color_confirmation = millis();  // Start the timer
       }
@@ -339,7 +319,7 @@ void loop() {
     case FIND_RED_CASE:
 
       // If the robot is on a red case
-      if (abs(val_sensors[sensors_light] - RED_VALUE) < EPSILON_COLOR) {
+      if (abs(sensorManager.sensorValues[sensors_light] - RED_VALUE) < EPSILON_COLOR) {
         objective = CONFIRMATION_RED;              // Go to confirmation
         start_time_color_confirmation = millis();  // Start the timer
       }
@@ -349,7 +329,7 @@ void loop() {
     case CONFIRMATION_BLACK:
 
       // If the robot is still on a black case after the confirmation time
-      if (millis() - start_time_color_confirmation > TIME_COLOR_CONFIRMATION && abs(val_sensors[sensors_light] - BLACK_VALUE) < EPSILON_COLOR) {
+      if (millis() - start_time_color_confirmation > TIME_COLOR_CONFIRMATION && abs(sensorManager.sensorValues[sensors_light] - BLACK_VALUE) < EPSILON_COLOR) {
         objective = FIND_RED_CASE;  // Go to find a red case
         found_black = true;         // Set the boolean to true
         Serial.println("FIND_RED_CASE");
@@ -365,7 +345,7 @@ void loop() {
     case CONFIRMATION_RED:
 
       // If the robot is still on a red case after the confirmation time
-      if (millis() - start_time_color_confirmation > TIME_COLOR_CONFIRMATION && abs(val_sensors[sensors_light] - RED_VALUE) < EPSILON_COLOR) {
+      if (millis() - start_time_color_confirmation > TIME_COLOR_CONFIRMATION && abs(sensorManager.sensorValues[sensors_light] - RED_VALUE) < EPSILON_COLOR) {
 
         // If the robot has already found a black case
         if (found_black) {
