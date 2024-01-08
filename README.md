@@ -9,6 +9,10 @@ CAZAUBON Lorenz
 
 PERDREAU Robin
 
+LEROY Loic
+
+KOMARYAN Vahan
+
 
 ## Features
 - **Wall-Following Algorithm**: The robot can follow the right or left wall to navigate through the maze.
