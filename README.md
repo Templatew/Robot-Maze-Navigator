@@ -6,6 +6,7 @@ This repository contains the code and documentation for a maze-navigating robot,
 ## Contributors
 
 CAZAUBON Lorenz
+
 PERDREAU Robin
 
 ## Features
