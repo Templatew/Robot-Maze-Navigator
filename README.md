@@ -9,6 +9,7 @@ CAZAUBON Lorenz
 
 PERDREAU Robin
 
+
 ## Features
 - **Wall-Following Algorithm**: The robot can follow the right or left wall to navigate through the maze.
 - **Random Movement Strategy**: Used for exploring open areas and for cases where the wall-following algorithm is insufficient.
