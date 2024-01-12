@@ -1,5 +1,4 @@
 ![image](https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/236eb8ce-0977-469f-9c5c-61a7a00cb674)
-# Robot Maze Navigator
 
 ## Project Overview
 This repository contains the code and documentation for a maze-navigating robot, designed as part of a robotics course. The robot, simulated in CoppeliaSim with HoroSim, utilizes a combination of wall-following and random movement strategies to navigate through dynamically generated mazes.
