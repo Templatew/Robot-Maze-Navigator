@@ -1,3 +1,4 @@
+![image](https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/236eb8ce-0977-469f-9c5c-61a7a00cb674)
 # Robot Maze Navigator
 
 ## Project Overview
