@@ -41,7 +41,7 @@ Thus, the most optimal strategy is to follow the exterior wall of the maze until
 This strategy has some downsides like : 
 - Inconsistency accross different mazes
 - The time it takes to find the tile is random
-The good news is, wherever the tile is, the robot will find it eventualy. So, while not being perfect, the robot is at least reliable.
+The good news is, wherever the tile is, the robot will find it eventualy, and it can't get stuck forever. So, while not being perfect, the robot is at least reliable.
 
                                                                                                   
 */
