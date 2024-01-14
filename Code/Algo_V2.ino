@@ -1,3 +1,55 @@
+/* 
+ ________  ________  ________  ________  _________                                                
+|\   __  \|\   __  \|\   __  \|\   __  \|\___   ___\                                              
+\ \  \|\  \ \  \|\  \ \  \|\ /\ \  \|\  \|___ \  \_|                                              
+ \ \   _  _\ \  \\\  \ \   __  \ \  \\\  \   \ \  \                                               
+  \ \  \\  \\ \  \\\  \ \  \|\  \ \  \\\  \   \ \  \                                              
+   \ \__\\ _\\ \_______\ \_______\ \_______\   \ \__\                                             
+    \|__|\|__|\|_______|\|_______|\|_______|    \|__|                                             
+                                                                                                  
+                                                                                                  
+                                                                                                  
+ _____ ______   ________  ________  _______                                                       
+|\   _ \  _   \|\   __  \|\_____  \|\  ___ \                                                      
+\ \  \\\__\ \  \ \  \|\  \\|___/  /\ \   __/|                                                     
+ \ \  \\|__| \  \ \   __  \   /  / /\ \  \_|/__                                                   
+  \ \  \    \ \  \ \  \ \  \ /  /_/__\ \  \_|\ \                                                  
+   \ \__\    \ \__\ \__\ \__\\________\ \_______\                                                 
+    \|__|     \|__|\|__|\|__|\|_______|\|_______|                                                 
+                                                                                                  
+                                                                                                  
+                                                                                                  
+ ________   ________  ___      ___ ___  ________  ________  _________  ________  ________         
+|\   ___  \|\   __  \|\  \    /  /|\  \|\   ____\|\   __  \|\___   ___\\   __  \|\   __  \        
+\ \  \\ \  \ \  \|\  \ \  \  /  / | \  \ \  \___|\ \  \|\  \|___ \  \_\ \  \|\  \ \  \|\  \       
+ \ \  \\ \  \ \   __  \ \  \/  / / \ \  \ \  \  __\ \   __  \   \ \  \ \ \  \\\  \ \   _  _\      
+  \ \  \\ \  \ \  \ \  \ \    / /   \ \  \ \  \|\  \ \  \ \  \   \ \  \ \ \  \\\  \ \  \\  \|     
+   \ \__\\ \__\ \__\ \__\ \__/ /     \ \__\ \_______\ \__\ \__\   \ \__\ \ \_______\ \__\\ _\     
+    \|__| \|__|\|__|\|__|\|__|/       \|__|\|_______|\|__|\|__|    \|__|  \|_______|\|__|\|__|    
+                                                                                                  
+
+
+The Robot Maze Navigator is a cutting edge algorithm, made to find the black tile in a maze and come back to it's starting point. It does that by following the walls.
+A further algorithm in developpement uses deeplearning to make the robot smarter.
+The task of finding the tile and going back is purely random, because of the lack of self positionning. 
+We explored a lot of potential solution, to be able to map the maze and here are our findings : 
+-We can't keep track of the tile we are currently on because of the lack of precise rotation.
+-We can't map the maze like a LIDAR would because of the lack of range on the distance sensors.
+-We can't keep track of the position or movement of the robot because we don't have an IMU onboard.
+Considering those issues, mapping the maze turned out to be impossible.
+Thus, the most optimal strategy is to follow the exterior wall of the maze until we fing the black tile, otherwise, move randomly.
+This strategy has some downsides like : 
+- Inconsistency accross different mazes
+- The time it takes to find the tile is random
+The good news is, wherever the tile is, the robot will find it eventualy. So, while not being perfect, the robot is at least reliable.
+
+                                                                                                  
+*/
+
+
+
+
+
 // Pin definitions for sensors and motors
 #define LIGHT_SENSOR_PIN A0
 #define PROX_SENSOR_L_PIN 9
@@ -97,7 +149,7 @@ void get_sensors_value() {
   val_sensors[sensors_light] = analogRead(LIGHT_SENSOR_PIN);
 }
 
-
+//Initialize pinMode Status
 void setup() {
   Serial.begin(4800);
   pinMode(MOTOR_RF_PIN, OUTPUT);
@@ -148,6 +200,9 @@ int customConstrain(int x, int a, int b) {
 float Kp = 0.35;  // Proportional coefficient
 float Ki = 0.0;   // Integral coefficient
 float Kd = 0.0;   // Derivative coefficient
+//Integral and derivative coefficient are purpusefully left null, because the robot can be described 
+//as a first order system, so the proportional corrector is enough to navigate the maze.
+
 
 // PID variables
 float integral = 0.0;
