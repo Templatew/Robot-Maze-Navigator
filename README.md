@@ -42,7 +42,7 @@ Examples of the mazes that the robot can navigate can be found here: [Maze Examp
 ## Contributors
 
  - [CAZAUBON Lorenz](https://github.com/Templatew)
- - [PERDREAU Robin]([https://github.com/Poblit0](https://github.com/BlackJackGeary83))
+ - [PERDREAU Robin](https://github.com/BlackJackGeary83)
 
 ## Gallery
 In this section, you can find videos showcasing the successful execution of the robot's maze navigation code. These videos are screen recordings taken on a computer equipped with an i9-11900k processor, which demonstrate how the code performs in real-time within the CoppeliaSim environment.
