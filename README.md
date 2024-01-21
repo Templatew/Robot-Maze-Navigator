@@ -3,13 +3,6 @@
 ## Project Overview
 This repository contains the code and documentation for a maze-navigating robot, designed as part of a robotics course. The robot, simulated in CoppeliaSim with HoroSim, utilizes a combination of wall-following and random movement strategies to navigate through dynamically generated mazes.
 
-## Contributors
-
-CAZAUBON Lorenz
-
-PERDREAU Robin
-
-
 ## Features
 - **Wall-Following Algorithm**: The robot can follow the right or left wall to navigate through the maze.
 - **Random Movement Strategy**: Used for exploring open areas and for cases where the wall-following algorithm is insufficient.
@@ -45,6 +38,11 @@ For detailed information about the implementation and functionalities of the rob
 
 ## Example Mazes
 Examples of the mazes that the robot can navigate can be found here: [Maze Examples](https://github.com/Templatew/Robot-Maze-Navigator/tree/main/Maze%20Exemples).
+
+## Contributors
+
+ - [CAZAUBON Lorenz](https://github.com/Templatew)
+ - [PERDREAU Robin]([https://github.com/Poblit0](https://github.com/BlackJackGeary83))
 
 ## Gallery
 In this section, you can find videos showcasing the successful execution of the robot's maze navigation code. These videos are screen recordings taken on a computer equipped with an i9-11900k processor, which demonstrate how the code performs in real-time within the CoppeliaSim environment.
