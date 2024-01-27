@@ -75,5 +75,3 @@ https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/59369c49-7e6c-
 
 
 
-### Screenshots
-![image](https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/7290d963-7b00-4dda-8960-42e184f3d003)
