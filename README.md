@@ -56,8 +56,24 @@ https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/07e115f3-0769-
 
 
 - **Video 2**: [Robot Navigating Maze - Normal 1](https://www.youtube.com/watch?v=eE6V4Z8Rsyo)
+  
+
+https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/2af6e189-de76-4109-bf23-9a4874d1af94
+
+
 - **Video 3**: [Robot Navigating Maze - Normal 2](https://www.youtube.com/watch?v=hEwCGLeCXpU)
+  
+
+https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/b4633d04-693f-458c-a1ba-c6ea287d295c
+
+
 - **Video 4**: [Robot Navigating Maze - Big](https://www.youtube.com/watch?v=pYgpAhSzy7s)
+
+  
+
+https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/59369c49-7e6c-4b62-a16a-73247e0edade
+
+
 
 ### Screenshots
 ![image](https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/7290d963-7b00-4dda-8960-42e184f3d003)
