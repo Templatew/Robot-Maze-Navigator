@@ -50,6 +50,11 @@ In this section, you can find videos showcasing the successful execution of the 
 ### Video Demonstrations
 
 - **Video 1**: [Robot Navigating Maze - Small](https://www.youtube.com/watch?v=gO2x4uKiWLo)
+  
+
+https://github.com/Templatew/Robot-Maze-Navigator/assets/96289463/07e115f3-0769-4a23-995a-0d825588bf9a
+
+
 - **Video 2**: [Robot Navigating Maze - Normal 1](https://www.youtube.com/watch?v=eE6V4Z8Rsyo)
 - **Video 3**: [Robot Navigating Maze - Normal 2](https://www.youtube.com/watch?v=hEwCGLeCXpU)
 - **Video 4**: [Robot Navigating Maze - Big](https://www.youtube.com/watch?v=pYgpAhSzy7s)
